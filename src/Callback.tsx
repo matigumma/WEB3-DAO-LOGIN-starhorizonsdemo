@@ -16,7 +16,6 @@ export const Callback: FC = () => {
 
   //move to callback 
   React.useEffect(() => {
-    if(location.pathname === '/callback'){
       console.log('code: ', code);
       console.log('access_token: ', access_token);
       console.log('token_type: ', token_type);
@@ -31,23 +30,12 @@ export const Callback: FC = () => {
       .then(response => {
         const { username, discriminator } = response;
         console.log(`api/user: ${username}#${discriminator}`);
-        signInWithCustomToken(auth, access_token)
-        .then((userCredential) => {
-          // Signed in
-          console.log('userCredential.user: ', userCredential.user);
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ...
-        });
+        
+        //call internal api to save user
       })
       .catch(console.error);
     }
-  }
-  
-}, [location])
+}, [])
 
 
 }

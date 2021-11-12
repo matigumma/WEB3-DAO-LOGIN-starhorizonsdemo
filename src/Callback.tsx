@@ -7,6 +7,7 @@ import { useLocalStorage, useSearchParam } from 'react-use';
 import { useHistory } from 'react-router';
 
 import sh from './assets/ç.png';
+import { resourceUsage } from 'process';
 
 export const Callback: FC = () => {
   //move to callback route
@@ -37,5 +38,17 @@ export const Callback: FC = () => {
     }
 }, [])
 
-
+return (<>
+<div className="min-h-screen pt-16 overflow-hidden hero bg-gradient-to-br from-neutral-focus via-primary to-neutral-focus text-primary-content">
+  <div className="flex-col justify-between w-full max-w-6xl mt-10 mb-48 hero-content">
+    <p>
+      Code: {code}
+      {' '}
+      AT: {access_token}
+      {' '}
+      
+    </p>
+  </div>
+</div>
+</>)
 }

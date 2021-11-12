@@ -26,7 +26,8 @@ export const Navigation: FC = () => {
       //este token podria estar almacenado en db propia y comprobar contra localstorage antes de renovarlo
       const validToken = true; // mock
       validToken && setDiscordConnected(true);
-    }, [discordTkn]);
+    }
+   }, [discordTkn]);
 
   React.useEffect(() => {
     setValue(auto ? '1' : '0');
@@ -104,51 +105,31 @@ return (
       </div>
    </div>
    {' '}
-   <div>
-      <div className="min-h-screen pt-16 overflow-hidden hero bg-gradient-to-br from-neutral-focus via-primary to-neutral-focus text-primary-content">
-         <div className="inline-block w-full transform scale-125 opacity-5 -rotate-12 text-neutral">
-            {/* ?xml version="1.0" encoding="UTF-8"? */}
-            <span>STAR HORIZONS</span>
-         </div>
+   <div className="pt-16 overflow-hidden hero bg-gradient-to-br from-neutral-focus via-primary to-neutral-focus text-primary-content">
+      <div className="inline-block w-full transform scale-125 opacity-5 -rotate-12 text-neutral">
+         {/* ?xml version="1.0" encoding="UTF-8"? */}
+         <span>STAR HORIZONS</span>
+      </div>
+      {' '}
+      <div className="flex-col justify-between w-full max-w-6xl mt-10 mb-48 hero-content">
+         <h1 className="py-4 mb-2 font-extrabold text-center font-title lg:py-10 lg:py-0">
+            <div className="text-4xl">
+               Member verification
+            </div>
+         </h1>
          {' '}
-         <div className="flex-col justify-between w-full max-w-6xl mt-10 mb-48 hero-content">
-            <h1 className="py-4 mb-2 font-extrabold text-center font-title lg:py-10 lg:py-0">
-               <div className="text-4xl">
-                  Member verification
-               </div>
-            </h1>
-            {' '}
-            <div className="flex flex-col items-center justify-center w-full space-y-10 lg:space-x-4 lg:space-y-0 lg:flex-row">
-               <img 
-                  alt=""
-                  src={sh}
-                  className="flex-1 w-full max-w-xs lg:mx-0" 
-                  />{' '}
-               <div className="flex flex-col max-w-sm gap-2 my-2 text-left">
-                  {/* discord */}
-                  <div className="flex gap-2">
-                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        className="inline-block w-6 h-6 stroke-current"
-                        >
-                        <path
-                           strokeLinecap="round"
-                           strokeLinejoin="round"
-                           strokeWidth={2}
-                           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                           />
-                     </svg>
-                     <span style={{color: '#999'}}>Connect with Discord</span>
-                  </div>
-                  {' '}
-                  {/* wallet */}
-                  <div className="flex gap-2">
-                     <svg
+         <div className="flex flex-col items-center justify-center w-full space-y-10 lg:space-x-4 lg:space-y-0 lg:flex-row">
+            <img 
+               alt=""
+               src={sh}
+               className="flex-1 w-full max-w-xs lg:mx-0" 
+            />{' '}
+            <div className="flex flex-col max-w-sm gap-2 my-2 text-left">
+               {/* discord */}
+               <div className="flex gap-2">
+                  <svg
                      xmlns="http://www.w3.org/2000/svg"
                      fill="none"
-                     color={!connecting && connected && wallet ? '#12d612' : 'none'}
                      viewBox="0 0 24 24"
                      className="inline-block w-6 h-6 stroke-current"
                      >
@@ -158,43 +139,60 @@ return (
                         strokeWidth={2}
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
-                     </svg>
-                     <span style={!connecting && connected && wallet ? {color: '#fff'} : {color: '#999'}}>Connect{!connecting && connected && wallet && 'ed'} with your wallet</span>
-                  </div>
-                  {' '}
-                  <div className="flex gap-2">
-                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        className="inline-block w-6 h-6 stroke-current"
-                        >
-                        <path
-                           strokeLinecap="round"
-                           strokeLinejoin="round"
-                           strokeWidth={2}
-                           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                           />
-                     </svg>
-                     Join!
-                  </div>
+                  </svg>
+                  <span style={{color: '#999'}}>Connect with Discord</span>
+               </div>
+               {' '}
+               {/* wallet */}
+               <div className="flex gap-2">
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  color={!connecting && connected && wallet ? '#12d612' : 'none'}
+                  viewBox="0 0 24 24"
+                  className="inline-block w-6 h-6 stroke-current"
+                  >
+                  <path
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                     strokeWidth={2}
+                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                     />
+                  </svg>
+                  <span style={!connecting && connected && wallet ? {color: '#fff'} : {color: '#999'}}>Connect{!connecting && connected && wallet && 'ed'} with your wallet</span>
+               </div>
+               {' '}
+               <div className="flex gap-2">
+                  <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     className="inline-block w-6 h-6 stroke-current"
+                     >
+                     <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                  </svg>
+                  Join!
                </div>
             </div>
-            {' '}
-            <div className="flex justify-center flex-1 mt-4 space-x-2 lg:mt-12 lg:justify-start">
-              {' ! client_id, redirect_uri, scope could be parametrized from .env '}
-               <a
-                  href={`https://discord.com/api/oauth2/authorize?client_id=${908033603190013952}&redirect_uri=https%3A%2F%2Fstarhorizonsdemo.web.app%2Fcallback&response_type=code&scope=identify%20email%20guilds%20guilds.join`}
-                  target="_blank"
-                  className="lg:btn-lg btn btn-ghost" rel="noreferrer"
-                  >
-               discord
-               </a>{' '}
-               <WalletMultiButton className="shadow-2xl lg:btn-lg btn" />
-            </div>
+         </div>
+         {' '}
+         <div className="flex justify-center flex-1 mt-4 space-x-2 lg:mt-12 lg:justify-start">
+            {/* client_id, redirect_uri, scope could be parametrized from .env */}
+            <a
+               href={`https://discord.com/api/oauth2/authorize?client_id=908033603190013952&redirect_uri=https%3A%2F%2Fstarhorizonsdemo.web.app%2Fcallback&response_type=code&scope=identify%20email%20guilds%20guilds.join`}
+               target="_blank"
+               className="lg:btn-lg btn btn-ghost" rel="noreferrer"
+               >
+            discord
+            </a>{' '}
+            <WalletMultiButton className="shadow-2xl lg:btn-lg btn" />
          </div>
       </div>
-      {' '}
    </div>
 </main>
   );

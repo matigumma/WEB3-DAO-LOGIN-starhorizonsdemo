@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "development": "starhorizonsdemo",
+    "production": "starhorizonsdemo"
+  }
+}

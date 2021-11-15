@@ -11,8 +11,8 @@ const App: FC = () => {
     return (
         <AppProvider>
             <Switch>
-                <Route path="/" component={Navigation} />
                 <Route path="/callback" component={Callback} />
+                <Route path="/" strict component={Navigation} />
             </Switch>
         </AppProvider>
     );

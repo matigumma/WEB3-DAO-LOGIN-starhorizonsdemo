@@ -1,6 +1,5 @@
 {
   "projects": {
-    "development": "starhorizonsdemo",
-    "production": "starhorizonsdemo"
+    "default": "starhorizonsdemo"
   }
 }

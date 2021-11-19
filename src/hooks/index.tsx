@@ -15,10 +15,6 @@ import { Notification } from '../Notification';
 import logo from '../assets/sh.png';
 
 export const AppProvider: React.FC = ({ children }) => {
-    const [value, setValue ] = useLocalStorage('autoconnect');
-    React.useEffect(() => {
-        if(value === undefined) setValue('0');
-    },[]);
     // Can be set to 'devnet', 'testnet', or 'mainnet-beta' // provide it from .env
     const network = WalletAdapterNetwork.Devnet;
     const endpoint = React.useMemo(() => clusterApiUrl(network), [network]);
@@ -40,7 +36,7 @@ export const AppProvider: React.FC = ({ children }) => {
   
   return (
     <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets} onError={onError} autoConnect={value==='0' ? false : true}>
+        <WalletProvider wallets={wallets} onError={onError} autoConnect>
             <WalletModalProvider featuredWallets={1} logo={logo} className="classWalletModalLogo">
                 {children}
             </WalletModalProvider>
